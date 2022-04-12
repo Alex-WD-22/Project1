@@ -3,3 +3,11 @@
 
 }
 
+li {
+    width: 5%;
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+    vertical-align: top;
+    
+}

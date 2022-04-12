@@ -17,21 +17,34 @@
 
     <h1 id="title">Simply Math</h1>
 
-    <button type="button" class="btn btn-success" id="btn-start">Start</button>
+    <button type="button" class="btn btn-success" id="btn-start">Start</button> <button type="button" class="btn btn-success" id="restart">Restart</button>
 
     <div id="random-equation"> example 10x10</div>
 
     <div id="timer">Time Left: 8</div>
 
-    <div id="container">
+    <!-- <div id="container">
         <button id="btn-answer1" type="button" class="btn btn-outline-primary"> 1 </button>
         <button id="btn-answer2" type="button" class="btn btn-outline-primary"> 2 </button>
         <button id="btn-answer3" type="button" class="btn btn-outline-primary"> 3 </button><br>
         <button id="btn-answer4" type="button" class="btn btn-outline-primary"> 4 </button>
         <button id="btn-answer5" type="button" class="btn btn-outline-primary"> 5 </button>
         <button id="btn-answer6" type="button" class="btn btn-outline-primary"> 6 </button>
-    </div>
+    </div> -->
+    <ul >
+            <li class="list-group-item list-group-item-primary" id="btn-answer1">1</li> 
+            <li class="list-group-item list-group-item-primary" id="btn-answer2">2</li> 
+            <li class="list-group-item list-group-item-primary" id="btn-answer3">3</li>
+            
+            <li class="list-group-item list-group-item-primary" id="btn-answer4">4</li> 
+            <li class="list-group-item list-group-item-primary" id="btn-answer5">5</li> 
+            <li class="list-group-item list-group-item-primary" id="btn-answer6">6</li>
+    </ul>
 
+
+
+   
+    <div id="game-over" ></div>
 
     <script src="./JS/game.js"></script>
     <script src="./JS/main.js"></script>
