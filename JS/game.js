@@ -35,18 +35,20 @@ function startGame() {
 }
 
 function gameOver() {
+    document.getElementById("board").classList.add = 'none'
     document.getElementById('btn-answer1').disabled = true;
-    let hiddenGameOver = document.getElementById('game-over').hidden = false;
-    hiddenGameOver.createElement('button');
-    hiddenGameOver.innerHTML
+    document.getElementById('game-over').hidden = false;
+    document.getElementById('restart').addEventListener('click', resetGame)
+    
 
 }
 
 function resetGame() {
     document.getElementById("btn-start").disabled = false;
 
-    startGame();
+    
 }
+
 function correctAnswer() {
     let rightAnswer
     if (checkAnswer.newProblem.operator === '+') {
