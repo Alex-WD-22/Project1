@@ -1,13 +1,79 @@
-#random-number {
-    border: 1px solid rgb(25, 0, 255);
-
+#board {
+    align-items: center;
+    border: 5px solid #182848;
+    background-color: #4b6cb7;
+    height: 305px;
+    width: 490px;
+    margin: 10px;
+    padding: 10px;
+    position: absolute;
 }
 
+html {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+h1 {
+    padding: 10px;
+    font-size: xx-large;
+    color: #481BB2;
+    text-shadow: 1px 3px 2px #33e010;
+
+
+}
+#random-equation {
+    padding: 10px;
+    color:  #182848;
+    font-size: larger;
+    box-shadow: 2px 2px 7px 1px #33e010;
+    width: 80px;
+    padding: 10px;
+    margin: 10px;
+}   
+
+
 li {
-    width: 5%;
-    display: inline-block;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 50%;
     margin: 5px;
     padding: 10px;
     vertical-align: top;
+    border-radius: 10%;
     
 }
+#btn-start {
+    display: flex;
+    flex-direction: center;
+    padding: 10px;
+    margin: 10px;
+    
+}
+ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.hide {
+    align-items: center;
+    border: 5px solid rgb(3, 23, 175);
+    background-color: rgb(231, 63, 12);
+    height: 305px;
+    width: 490px;
+    margin: 10px;
+    padding: 10px;
+    position: absolute;
+
+}
+.cursors {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, min-content));
+    column-gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.pointer { 
+    cursor: pointer;
+}
+body {
+    cursor: pointer,auto;
+  }
