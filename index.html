@@ -10,53 +10,38 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="./CSS/reset.css">
     <link rel="stylesheet" href="./CSS/main.css">
-
 </head>
 
 <body>
     <div id="container">
-    <div id="board" >
-        
-        <div class="cursors" >
-            
-        <div class="pointer"></div>
-    </div>
-    
+        <div id="board">
+            <a href="https://github.com/Alex-WD-22">@Alexander Nerz</a>
             <h1 id="title"> <b></b>Simply Math</b></h1>
-        
-
-        <button type="button" class="btn btn-success btn-lg" id="btn-start">Start</button>
-    
-
-        <div id="random-equation">  1 + 1 </div>
-
-    
-        <ul>
-            <li class="list-group-item list-group-item-primary" id="btn-answer1">8</li>
-            <li class="list-group-item list-group-item-primary" id="btn-answer2">2</li>
-            <li class="list-group-item list-group-item-primary" id="btn-answer3">3</li>
-
-            <li class="list-group-item list-group-item-primary" id="btn-answer4">9</li>
-            <li class="list-group-item list-group-item-primary" id="btn-answer5">99</li>
-            <li class="list-group-item list-group-item-primary" id="btn-answer6">15</li>
-        </ul>
-
-
-
-
-        <div class="hide" id="game-over">
-            <div id="endScreenContent"> 
-                <h2>Oouch!</h2>
-                <h3>try again</h3>
-                <button type="button" class="btn btn-success btn-lg" id="restart">Restart</button>
+            <button type="button" class="btn btn-success btn-lg" id="btn-start">Start</button>
+            <div id="random-equation"> 1 + 1 </div>
+            <ul class="li-disable">
+                <li class="list-group-item list-group-item-primary" id="btn-answer1">8</li>
+                <li class="list-group-item list-group-item-primary" id="btn-answer2">2</li>
+                <li class="list-group-item list-group-item-primary" id="btn-answer3">3</li>
+                <li class="list-group-item list-group-item-primary" id="btn-answer4">9</li>
+                <li class="list-group-item list-group-item-primary" id="btn-answer5">99</li>
+                <li class="list-group-item list-group-item-primary" id="btn-answer6">15</li>
+            </ul>
+            <div class="hide" id="game-over">
+                <div id="endScreenContent">
+                    <h2>Oouch!</h2>
+                    <h3>try again</h3>
+                    <button type="button" class="btn btn-success btn-lg" id="restart">try again</button>
+                </div>
             </div>
+            
         </div>
+        
     </div>
-</div>
-</div>
+    
+    </div>
     <script src="./JS/game.js"></script>
     <script src="./JS/main.js"></script>
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

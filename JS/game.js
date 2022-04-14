@@ -34,20 +34,30 @@ function startGame() {
     document.getElementById('btn-start').disabled = true;
 }
 
+function playMusic () {
+    document.getElementById("background-music")
+}
+
 function gameOver() {
-    document.getElementById("board").classList.add = 'none'
+    document.getElementById("board").classList.add = 'none';
     document.getElementById('btn-answer1').disabled = true;
     document.getElementById('game-over').hidden = false;
     document.getElementById('restart').addEventListener('click', resetGame)
-    
+
     
 
 }
 
 function resetGame() {
-    document.getElementById("btn-start").disabled = false;
-    document.getElementById('game-over').hidden = true;
+   document.getElementById("btn-start").innerHTML="new equation";
+   document.getElementById("btn-start").disabled = false;
+   document.getElementById('game-over').hidden = true;
+   
     
+}
+
+function disable () {
+
 }
 
 function correctAnswer() {
