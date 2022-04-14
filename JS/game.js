@@ -1,16 +1,22 @@
+const wrongAnswerbtn2 = document.getElementById('btn-answer2')
+const wrongAnswerbtn3 = document.getElementById('btn-answer3')
+const wrongAnswerbtn4 = document.getElementById('btn-answer4')
+const wrongAnswerbtn5 = document.getElementById('btn-answer5')
+const wrongAnswerbtn6 = document.getElementById('btn-answer6')
 document.getElementById("btn-start").addEventListener("click", startGame);
 const equation = document.getElementById("random-equation")
 const gameOverScreen = document.getElementById('game-over').hidden = true;
 let totalTime = null;
 let timer = 8;
-let checkAnswer = {
+let counter = {
     wrongAnswers: 0,
     score: 0
 }
 
+
 function problems() {
-    checkAnswer.newProblem = toCalculate();
-    equation.innerHTML = `${checkAnswer.newProblem.numb1} ${checkAnswer.newProblem.operator} ${checkAnswer.newProblem.numb2}`
+    counter.newProblem = toCalculate();
+    equation.innerHTML = `${counter.newProblem.numb1} ${counter.newProblem.operator} ${counter.newProblem.numb2}`
 }
 
 function randomNumber(number) {
@@ -26,53 +32,60 @@ function toCalculate() {
 }
 
 function startGame() {
+    
     shuffle();
     problems();
     answerbtn();
     correctAnswer();
-    toCalculate();
     document.getElementById('btn-start').disabled = true;
-}
-
-function playMusic () {
-    document.getElementById("background-music")
 }
 
 function gameOver() {
     document.getElementById("board").classList.add = 'none';
     document.getElementById('btn-answer1').disabled = true;
     document.getElementById('game-over').hidden = false;
-    document.getElementById('restart').addEventListener('click', resetGame)
-
+    document.getElementById('restart').addEventListener('click', resetGame, resetScore());
+    document.getElementById('game-over-score').innerHTML = "Score: " + counter.score;
     
 
 }
 
 function resetGame() {
+
    document.getElementById("btn-start").innerHTML="new equation";
    document.getElementById("btn-start").disabled = false;
    document.getElementById('game-over').hidden = true;
-   
-    
+       
 }
-
-function disable () {
-
+function resetScore () {
+    document.getElementById('score').innerText = 'Score: ' + 0;
+    // counter.score = 0;
+   
 }
 
 function correctAnswer() {
     let rightAnswer
-    if (checkAnswer.newProblem.operator === '+') {
-        rightAnswer = checkAnswer.newProblem.numb1 + checkAnswer.newProblem.numb2
-    } else if (checkAnswer.newProblem.operator === '-') {
-        rightAnswer = checkAnswer.newProblem.numb1 - checkAnswer.newProblem.numb2
-    } else if (checkAnswer.newProblem.operator === 'x')
-        rightAnswer = checkAnswer.newProblem.numb1 * checkAnswer.newProblem.numb2
+    if (counter.newProblem.operator === '+') {
+        rightAnswer = counter.newProblem.numb1 + counter.newProblem.numb2
+    } else if (counter.newProblem.operator === '-') {
+        rightAnswer = counter.newProblem.numb1 - counter.newProblem.numb2
+    } else if (counter.newProblem.operator === 'x')
+        rightAnswer = counter.newProblem.numb1 * counter.newProblem.numb2
 
     const rightAnswerbtn = document.getElementById('btn-answer1')
     rightAnswerbtn.innerHTML = rightAnswer;
-    rightAnswerbtn.addEventListener('click', startGame)
+    rightAnswerbtn.addEventListener('click', startGame, scoreCount())
+    
 }
+function scoreCount () {
+    let totalScore = document.getElementById("score")
+    totalScore.innerHTML = 'Score: ' +  counter.score++;
+    // newReset();
+}
+function newReset() {
+// counter.score = 0;
+}
+
 function shuffle () {
     let ul = document.querySelector('ul');
 for (let i = ul.children.length; i >= 0; i--) {
@@ -88,12 +101,6 @@ function randomnumb() {
 }
 
 function answerbtn() {
-    const wrongAnswerbtn2 = document.getElementById('btn-answer2')
-    const wrongAnswerbtn3 = document.getElementById('btn-answer3')
-    const wrongAnswerbtn4 = document.getElementById('btn-answer4')
-    const wrongAnswerbtn5 = document.getElementById('btn-answer5')
-    const wrongAnswerbtn6 = document.getElementById('btn-answer6')
-
     wrongAnswerbtn2.innerHTML = randomnumb();
     wrongAnswerbtn3.innerHTML = randomnumb();
     wrongAnswerbtn4.innerHTML = randomnumb();
