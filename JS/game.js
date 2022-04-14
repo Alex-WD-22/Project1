@@ -40,12 +40,13 @@ function gameOver() {
     document.getElementById('game-over').hidden = false;
     document.getElementById('restart').addEventListener('click', resetGame)
     
+    
 
 }
 
 function resetGame() {
     document.getElementById("btn-start").disabled = false;
-
+    document.getElementById('game-over').hidden = true;
     
 }
 
