@@ -13,8 +13,8 @@
 #board {
     border: 5px solid #0943b6;
     background-color: #0a0e52b7;
-    height: 310px;
-    width: 500px;
+    height: 330px;
+    width: 520px;
     margin: auto;
     padding: 10px;
     position: absolute;
@@ -75,7 +75,9 @@ li {
     margin: 5px;
     padding: 10px;
     border-radius: 10%;
-    font-weight: bold;
+    font-weight:bolder;
+    box-shadow: 2px 2px 4px 1px #33e010;
+    
 }
 
 #game-over {
@@ -138,4 +140,8 @@ a:hover {
 
 #game-over-score {
     color: #33ca0d;
+}
+.list-group-item  {
+ color: #0943b6;
+ font-size: larger;
 }
