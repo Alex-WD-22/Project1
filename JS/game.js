@@ -3,16 +3,11 @@ const wrongAnswerbtn3 = document.getElementById('btn-answer3')
 const wrongAnswerbtn4 = document.getElementById('btn-answer4')
 const wrongAnswerbtn5 = document.getElementById('btn-answer5')
 const wrongAnswerbtn6 = document.getElementById('btn-answer6')
-document.getElementById("btn-start").addEventListener("click", startGame);
 const equation = document.getElementById("random-equation")
 const gameOverScreen = document.getElementById('game-over').hidden = true;
-let totalTime = null;
-let timer = 8;
-let counter = {
-    wrongAnswers: 0,
-    score: 0
+document.getElementById("btn-start").addEventListener("click", startGame);
+let counter = {  
 }
-
 
 function problems() {
     counter.newProblem = toCalculate();
@@ -32,7 +27,6 @@ function toCalculate() {
 }
 
 function startGame() {
-    
     shuffle();
     problems();
     answerbtn();
@@ -44,25 +38,15 @@ function gameOver() {
     document.getElementById("board").classList.add = 'none';
     document.getElementById('btn-answer1').disabled = true;
     document.getElementById('game-over').hidden = false;
-    document.getElementById('restart').addEventListener('click', resetGame, resetScore());
-    document.getElementById('game-over-score').innerHTML = "Score: " + counter.score;
-    
-
+    document.getElementById('restart').addEventListener('click', resetGame);
 }
 
 function resetGame() {
-
    document.getElementById("btn-start").innerHTML="new equation";
    document.getElementById("btn-start").disabled = false;
    document.getElementById('game-over').hidden = true;
        
 }
-function resetScore () {
-    document.getElementById('score').innerText = 'Score: ' + 0;
-    // counter.score = 0;
-   
-}
-
 function correctAnswer() {
     let rightAnswer
     if (counter.newProblem.operator === '+') {
@@ -74,18 +58,8 @@ function correctAnswer() {
 
     const rightAnswerbtn = document.getElementById('btn-answer1')
     rightAnswerbtn.innerHTML = rightAnswer;
-    rightAnswerbtn.addEventListener('click', startGame, scoreCount())
-    
+    rightAnswerbtn.addEventListener('click', startGame,);
 }
-function scoreCount () {
-    let totalScore = document.getElementById("score")
-    totalScore.innerHTML = 'Score: ' +  counter.score++;
-    // newReset();
-}
-function newReset() {
-// counter.score = 0;
-}
-
 function shuffle () {
     let ul = document.querySelector('ul');
 for (let i = ul.children.length; i >= 0; i--) {
@@ -93,7 +67,6 @@ for (let i = ul.children.length; i >= 0; i--) {
 }
 
 }
-
 function randomnumb() {
     let max = 196;
     let min = 0;
@@ -113,7 +86,4 @@ function answerbtn() {
     wrongAnswerbtn5.addEventListener('click', gameOver)
     wrongAnswerbtn6.addEventListener('click', gameOver)
 }
-
-
-
 
