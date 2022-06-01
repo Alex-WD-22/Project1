@@ -145,3 +145,6 @@ a:hover {
  color: #0943b6;
  font-size: larger;
 }
+.name-link {
+    width: 24% !important;
+}
