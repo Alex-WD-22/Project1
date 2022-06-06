@@ -142,8 +142,8 @@ a:hover {
     color: #33ca0d;
 }
 .list-group-item  {
- color: #0943b6;
- font-size: larger;
+    color: #0943b6;
+    font-size: larger;
 }
 .name-link {
     width: 24% !important;

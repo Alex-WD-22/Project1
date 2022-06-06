@@ -15,4 +15,4 @@ which I played as a child to improve my math skills.
 ## Link to the Game
 
  
-https://alex-wd-22.github.io/Project1/
+[Simply-Math](https://alex-wd-22.github.io/Simply-Math/)
