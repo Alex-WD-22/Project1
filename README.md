@@ -4,7 +4,7 @@
 ## The Game to challenge yourself
 
 The Idea for the game Simply Math I got from "Superschlau ausgerechnet" 
-which I played as a child to improve my math skills.
+which I played as a child to improve my math skills. Superschlau was a Math Game in witch you could solve math equations and got points for correct answers.
 
 
 ## Instructions
