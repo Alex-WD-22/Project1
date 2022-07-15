@@ -9,7 +9,6 @@
     width: 100px;
     height: 100px;
 }
-
 #board {
     border: 5px solid #0943b6;
     background-color: #0a0e52b7;
@@ -20,13 +19,11 @@
     position: absolute;
     border-radius: 15%;  
 }
-
 html {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background: url('../images/blackboard.jpg') no-repeat center fixed;     
     background-size: cover;
 }
-
 h1 {
     padding: 15px;
     font-size: 50px;
@@ -36,14 +33,12 @@ h1 {
     margin: 10px;
     font-weight: bolder
 }
-
 #btn-start {
     display: flex;
     padding: 5px;
     margin: auto;
     margin-bottom: 15px;
 }
-
 h2, h3 {
     font-weight: bolder;
     margin: auto;
@@ -55,7 +50,6 @@ h2, h3 {
     text-shadow: 1px 5px 2px #0751db;
     top: 5%;
 }
-
 #random-equation {
     border: solid #000;
     border-width: 0 1px;
@@ -69,7 +63,6 @@ h2, h3 {
     font-weight: bold;
     margin-bottom: 15px;    
 }   
-
 li {
     width: 50%;
     margin: 5px;
@@ -79,26 +72,22 @@ li {
     box-shadow: 2px 2px 4px 1px #33e010;
     
 }
-
 #game-over {
     justify-content: space-between;
     display: flex;
     flex-direction: column;
     border-radius: 15%;
 }
-
 #restart {
    position: relative;
    display: flex;
    bottom: -180px;
    justify-content: center;
 }
-
 ul {
     display: flex;
     align-items: flex-end;
 }
-
 .hide {
     align-items: center;
     border: 5px solid #0943b6;
@@ -112,32 +101,26 @@ ul {
     transition: all .33s ease-out;
     transform: scale(1.2);
 }
-
 .none {
     display: none;
 }
-
 .hide, img{ 
     max-width: 490px;
     max-height: 305px;
     background-size: cover;
 }
-
 a {
     display: flex;
     padding-left: 14px;
 }
-
 a:link {
     color: white;
     font-size:smaller;
     background-color: transparent;
 }
-
 a:hover {
     color: #33ca0d;
 }
-
 #game-over-score {
     color: #33ca0d;
 }

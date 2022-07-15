@@ -6,7 +6,7 @@ const wrongAnswerbtn6 = document.getElementById('btn-answer6')
 const equation = document.getElementById("random-equation")
 const gameOverScreen = document.getElementById('game-over').hidden = true;
 document.getElementById("btn-start").addEventListener("click", startGame);
-let counter = {  
+let counter = {
 }
 
 function problems() {
@@ -42,10 +42,10 @@ function gameOver() {
 }
 
 function resetGame() {
-   document.getElementById("btn-start").innerHTML="new equation";
-   document.getElementById("btn-start").disabled = false;
-   document.getElementById('game-over').hidden = true;
-       
+    document.getElementById("btn-start").innerHTML = "new equation";
+    document.getElementById("btn-start").disabled = false;
+    document.getElementById('game-over').hidden = true;
+
 }
 function correctAnswer() {
     let rightAnswer
@@ -60,11 +60,11 @@ function correctAnswer() {
     rightAnswerbtn.innerHTML = rightAnswer;
     rightAnswerbtn.addEventListener('click', startGame,);
 }
-function shuffle () {
+function shuffle() {
     let ul = document.querySelector('ul');
-for (let i = ul.children.length; i >= 0; i--) {
-   ul.appendChild(ul.children[Math.random() * i | 0]);
-}
+    for (let i = ul.children.length; i >= 0; i--) {
+        ul.appendChild(ul.children[Math.random() * i | 0]);
+    }
 
 }
 function randomnumb() {
