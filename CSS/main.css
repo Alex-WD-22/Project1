@@ -12,7 +12,7 @@
 #board {
     border: 5px solid #0943b6;
     background-color: #0a0e52b7;
-    height: 330px;
+    height: 380px;
     width: 520px;
     margin: auto;
     padding: 10px;
@@ -91,7 +91,7 @@ ul {
 .hide {
     align-items: center;
     border: 5px solid #0943b6;
-    height: 310px;
+    height: 350px;
     width: 500px;
     margin: 10px;
     position: absolute;
@@ -130,4 +130,9 @@ a:hover {
 }
 .name-link {
     width: 24% !important;
+}
+body p {
+    color: #33ca0d;
+    font-weight: 900;
+    font-size: large;
 }

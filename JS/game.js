@@ -1,17 +1,37 @@
-const wrongAnswerbtn2 = document.getElementById('btn-answer2')
-const wrongAnswerbtn3 = document.getElementById('btn-answer3')
-const wrongAnswerbtn4 = document.getElementById('btn-answer4')
-const wrongAnswerbtn5 = document.getElementById('btn-answer5')
-const wrongAnswerbtn6 = document.getElementById('btn-answer6')
-const equation = document.getElementById("random-equation")
-const gameOverScreen = document.getElementById('game-over').hidden = true;
-document.getElementById("btn-start").addEventListener("click", startGame);
-let counter = {
+const getElById = id => document.getElementById(id);
+const addClickEventListener = (el, callback) => el.addEventListener('click', callback);
+
+const wrongAnswerBtnIds = ['btn-answer2', 'btn-answer3', 'btn-answer4', 'btn-answer5', 'btn-answer6'];
+const wrongAnswerButtons = wrongAnswerBtnIds.map(getElById);
+const equation = getElById("random-equation");
+const gameOverScreen = getElById('game-over').hidden = true;
+addClickEventListener(getElById("btn-start"), startGame);
+let counter = {};
+displayTimeLeft(30);
+
+let highScore = 0;
+
+
+function updateHighScore() {
+    getElById("high-score").innerHTML = `High Score: ${highScore}`;
+}
+
+function nextRound() {
+    shuffle();
+    problems();
+    answerbtn();
+    correctAnswer();
+    updateHighScore();
+}
+
+function resetHighScore() {
+    highScore = 0;
+    updateHighScore();
 }
 
 function problems() {
     counter.newProblem = toCalculate();
-    equation.innerHTML = `${counter.newProblem.numb1} ${counter.newProblem.operator} ${counter.newProblem.numb2}`
+    equation.innerHTML = `${counter.newProblem.numb1} ${counter.newProblem.operator} ${counter.newProblem.numb2}`;
 }
 
 function randomNumber(number) {
@@ -23,50 +43,124 @@ function toCalculate() {
         numb1: randomNumber(14),
         numb2: randomNumber(14),
         operator: ['+', '-', 'x'][randomNumber(2)]
-    }
+    };
 }
 
+let timer;
+
 function startGame() {
+    enableAnswerButtons();
+    startTimer(30);
     shuffle();
     problems();
     answerbtn();
     correctAnswer();
-    document.getElementById('btn-start').disabled = true;
+    getElById('btn-start').disabled = true;
+}
+
+function startTimer(duration) {
+    let timeLeft = duration;
+    displayTimeLeft(timeLeft);
+    timer = setInterval(() => {
+        timeLeft--;
+
+        if (timeLeft < 0) {
+            clearInterval(timer);
+            timeIsUp();
+        } else {
+            displayTimeLeft(timeLeft);
+        }
+    }, 1000);
+}
+
+function displayTimeLeft(time) {
+    const timerDisplay = getElById("timer");
+    timerDisplay.innerHTML = `Time Left: ${time}s`;
+}
+
+function timeIsUp() {
+    gameOver();
+    const timerDisplay = getElById("timer");
+    timerDisplay.innerHTML = "Time is up!";
 }
 
 function gameOver() {
-    document.getElementById("board").classList.add = 'none';
-    document.getElementById('btn-answer1').disabled = true;
-    document.getElementById('game-over').hidden = false;
-    document.getElementById('restart').addEventListener('click', resetGame);
+    disableAnswerButtons();
+    getElById("board").classList.add = 'none';
+    getElById('btn-answer1').disabled = true;
+    getElById('game-over').hidden = false;
+    addClickEventListener(getElById('restart'), resetGame);
+}
+
+function stopTimer() {
+    clearInterval(timer);
+}
+
+function removeEventListeners() {
+    getElById('btn-answer1').removeEventListener('click', nextRound);
+    wrongAnswerButtons.forEach(button => {
+        button.removeEventListener('click', gameOver);
+    });
 }
 
 function resetGame() {
-    document.getElementById("btn-start").innerHTML = "new equation";
-    document.getElementById("btn-start").disabled = false;
-    document.getElementById('game-over').hidden = true;
-
+    stopTimer();
+    getElById("btn-start").innerHTML = "new equation";
+    getElById("btn-start").disabled = false;
+    getElById('game-over').hidden = true;
+    disableAnswerButtons(); 
+    removeEventListeners(); 
+    resetHighScore(); 
 }
+
+function nextRound() {
+    shuffle();
+    problems();
+    answerbtn();
+    correctAnswer();
+}
+
+
 function correctAnswer() {
-    let rightAnswer
+    let rightAnswer;
     if (counter.newProblem.operator === '+') {
-        rightAnswer = counter.newProblem.numb1 + counter.newProblem.numb2
+        rightAnswer = counter.newProblem.numb1 + counter.newProblem.numb2;
     } else if (counter.newProblem.operator === '-') {
-        rightAnswer = counter.newProblem.numb1 - counter.newProblem.numb2
-    } else if (counter.newProblem.operator === 'x')
-        rightAnswer = counter.newProblem.numb1 * counter.newProblem.numb2
+        rightAnswer = counter.newProblem.numb1 - counter.newProblem.numb2;
+    } else if (counter.newProblem.operator === 'x') {
+        rightAnswer = counter.newProblem.numb1 * counter.newProblem.numb2;
+    }
 
-    const rightAnswerbtn = document.getElementById('btn-answer1')
+    const rightAnswerbtn = getElById('btn-answer1');
     rightAnswerbtn.innerHTML = rightAnswer;
-    rightAnswerbtn.addEventListener('click', startGame,);
+    addClickEventListener(rightAnswerbtn, () => {
+        highScore += 1; 
+        updateHighScore(); 
+        nextRound();
+    });
 }
+
 function shuffle() {
     let ul = document.querySelector('ul');
     for (let i = ul.children.length; i >= 0; i--) {
         ul.appendChild(ul.children[Math.random() * i | 0]);
     }
-
 }
+
+function disableAnswerButtons() {
+    getElById('btn-answer1').disabled = true;
+    wrongAnswerButtons.forEach(button => {
+        button.disabled = true;
+    });
+}
+
+function enableAnswerButtons() {
+    getElById('btn-answer1').disabled = false;
+    wrongAnswerButtons.forEach(button => {
+        button.disabled = false;
+    });
+}
+
 function randomnumb() {
     let max = 196;
     let min = 0;
@@ -74,16 +168,10 @@ function randomnumb() {
 }
 
 function answerbtn() {
-    wrongAnswerbtn2.innerHTML = randomnumb();
-    wrongAnswerbtn3.innerHTML = randomnumb();
-    wrongAnswerbtn4.innerHTML = randomnumb();
-    wrongAnswerbtn5.innerHTML = randomnumb();
-    wrongAnswerbtn6.innerHTML = randomnumb();
-
-    wrongAnswerbtn2.addEventListener('click', gameOver)
-    wrongAnswerbtn3.addEventListener('click', gameOver)
-    wrongAnswerbtn4.addEventListener('click', gameOver)
-    wrongAnswerbtn5.addEventListener('click', gameOver)
-    wrongAnswerbtn6.addEventListener('click', gameOver)
+    wrongAnswerButtons.forEach(button => {
+        button.innerHTML = randomnumb();
+        addClickEventListener(button, () => { 
+            gameOver();
+        });
+    });
 }
-
